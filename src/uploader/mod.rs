@@ -1,8 +1,8 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-//! Log upload to CloudWatch Logs.
+//! Upload pipeline - batching, CloudWatch client, retry logic, scheduling
 
-pub fn module_name() -> &'static str {
-    "uploader"
-}
+mod batcher;
+mod cw_client;
+mod retry;

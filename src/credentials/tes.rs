@@ -1,6 +1,4 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
-//! Credential provider and environment detection for GG Classic and Lite
-
-mod tes;
+//! Token Exchange Service credential provider for GG Classic and Lite
