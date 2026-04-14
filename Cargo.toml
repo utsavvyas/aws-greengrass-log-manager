@@ -1,28 +1,28 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
-
 [workspace]
-
 [package]
 name = "gg-log-manager"
 version = "0.1.0"
 edition = "2021"
 description = "Greengrass LogManager - Generic type component for log and EMF file upload to CloudWatch"
 license = "Apache-2.0"
-
+[features]
+default = ["aws-sdk"]
+aws-sdk = ["dep:aws-sdk-cloudwatchlogs", "dep:aws-config"]
 [dependencies]
-tokio = { version = "1.36", features = ["rt", "signal", "time", "sync", "macros"] }
+tokio = { version = "1.36", features = ["rt-multi-thread", "signal", "time", "sync", "macros"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 regex = "1"
 sha2 = "0.10"
 tracing = "0.1"
 tracing-subscriber = "0.3"
-
+aws-sdk-cloudwatchlogs = { version = "=1.20.0", optional = true }
+aws-config = { version = "=1.1.10", optional = true }
 [dev-dependencies]
 tempfile = "3"
 serial_test = "3"
-
 [profile.release]
 strip = true
 lto = true

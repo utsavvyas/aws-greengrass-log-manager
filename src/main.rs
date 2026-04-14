@@ -22,7 +22,7 @@ use tracing::{error, info};
 static SHUTDOWN_REQUESTED: AtomicBool = AtomicBool::new(false);
 
 #[cfg(not(tarpaulin_include))]
-#[tokio::main(flavor = "current_thread")]
+#[tokio::main]
 async fn main() {
     tracing_subscriber::fmt::init();
 
